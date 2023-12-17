@@ -1,4 +1,4 @@
-import Add from "../assets/Add.png";
+import add from "../assets/add.png";
 import cam from "../assets/cam.png";
 import more from "../assets/more.png";
 import Messages from "./Messages";
@@ -15,7 +15,7 @@ const Chat = () => {
         <span>{data.user?.displayName}</span>
         <div className="chatIcons flex">
           <img src={cam} alt="" className="h-6" />
-          <img src={Add} alt="" className="h-6" />
+          <img src={add} alt="" className="h-6" />
           <img src={more} alt="" className="h-6" />
         </div>
       </div>
