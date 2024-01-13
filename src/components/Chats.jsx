@@ -12,6 +12,7 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        console.log(doc.data());
         setChats(doc.data());
       });
 
@@ -37,21 +38,21 @@ const Chats = () => {
         >
           {/* For small devices */}
           <img
-            src={chat[1].userInfo.photoURL}
+            src={chat[1]?.userInfo?.photoURL || ''}
             className="w-[50px] h-[50px] rounded-full object-cover block sm:hidden"
           />
 
           {/* For medium and large devices */}
           <img
-            src={chat[1].userInfo.photoURL}
+            src={chat[1]?.userInfo?.photoURL || ''}
             className="w-[50px] h-[50px] rounded-full object-cover hidden sm:block"
           />
           <div className="userChatInfo">
             <span className="text-lg font-semibold hidden sm:block">
-              {chat[1].userInfo.displayName}
+              {chat[1]?.userInfo?.displayName || 'Unknown User'}
             </span>
             <p className="text-sm text-gray-400 hidden sm:block">
-              {chat[1].lastMessage?.text}
+              {chat[1]?.lastMessage?.text || 'No messages'}
             </p>
           </div>
         </div>
